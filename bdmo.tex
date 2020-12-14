@@ -5,23 +5,30 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Usage:                                           %%
-%%      \printtitle{<Contest Name>}{<Category>}     %%
-%%      \venue{<Date>}{<School Venue>}              %%
-%%      Use the Problems environment                %%
-%%      To add problems, just add                   %%
-%%          \problem{English Part}{Bangla Part}     %%
+%% Usage:                                                    %%
+%%  \printtitle{<Contest Name>}{<Category>}           %% Examples of <Contest Name>: ``বাছাই পর্ব: ঢাকা জেলা'', ``বরিশাল আঞ্চলিক গণিত উৎসব''
+%%  \venue{<Date>}{<School Venue>}                     %%
+%%   Use the Problems environment                     %%
+%%   To add problems, just add                            %%
+%%   \problem{<বাংলায় প্রশ্ন>}{<ইংরেজিতে প্রশ্ন>}{<উত্তর>}    %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\printtitle{Dhaka}{Primary}
-\venue{date}{venue}
+\printtitle{বাছাই পর্ব: ঢাকা জেলা}{প্রাইমারি}
+\venue{ডিসেম্বর ১৪, ২০২০}{ঢাকা রেসিডেনশিয়াল মডেল কলেজ}
 
 \begin{Problems}
-    \problem{english part}{bangla part}
-    \problem{english part}{bangla part}
-    \problem{english part}{bangla part}
-    \problem{english part}{bangla part}
-    \problem{english part}{bangla part}
+	\problem{এখানে বাংলায় সমস্যার বিবরণ দিতে হবে।}{The problem statement in English goes here.}{আর এখানে যাবে উত্তর।}
+	\problem{এই সারির নিচেই একটা নমুনা প্রশ্ন আছে।}{A sample problem is right below this row.}{}
+    \problem{\(f\) হলো ধনাত্মক পূর্ণসংখ্যার সেট থেকে ধনাত্মক পূর্ণসংখ্যার সেটে এমন একটা ফাংশন যেন যেকোনো পূর্ণসংখ্যা \(n\)-এর জন্য যদি \(x_1, x_2, \cdots , x_s\) সংখ্যাগুলো \(n\)-এর সবগুলো ধনাত্মক উৎপাদক হয়, তাহলে \(f(x_1)f(x_2)\cdots f(x_s)=n\)। \(f(343)+f(3012)\)-এর সম্ভাব্য সকল মানের যোগফল নির্ণয় করো।}
+    {Let \(f\) be a function from the set of positive integers to the set of positive integers such that for each positive integer \(n\), if \(x_1, x_2, \cdots , x_s\) are all the positive divisors of \(n\), then \(f(x_1)f(x_2)\cdots f(x_s)=n\). Find the sum of all possible values of \(f(343)+f(3012)\).}
+    {8}
+    \problem{মোটামুটি সহজ প্রশ্ন}{An easy-ish problem}{}
+    \problem{মোটামুটি সহজ প্রশ্ন}{An easy-ish problem}{}
+    \problem{মিডিয়াম ডিফিকাল্টির প্রশ্ন}{A problem of medium difficulty}{}
+    \problem{মিডিয়াম ডিফিকাল্টির প্রশ্ন}{A problem of medium difficulty}{}
+    \problem{কঠিন প্রশ্ন}{A hard problem}{}
+    \problem{কঠিন প্রশ্ন}{A hard problem}{}
+    \problem{খুবই কঠিন প্রশ্ন}{A very hard problem}{}
 \end{Problems}
 
 \end{document}

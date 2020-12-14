@@ -38,15 +38,15 @@
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
-%% problem command, the two inputs are for two languages of the problem
+%% problem command, the three inputs are for the two languages and the answer of the problem
 \newcounter{problem}
-\newcommand{\problem}[2]{
+\newcommand{\problem}[3]{
     \stepcounter{problem}
     \theproblem & #1 
 
     \vspace{1em} 
 
-    #2 & \\ \hline
+    #2 & \centering\arraybackslash #3 \\ \hline
 }
 
 %% Prints the information part of the heading, takes the category as input
@@ -67,7 +67,7 @@
 %% Prints the title, takes the Contest name as input
 \newcommand{\bdmoname}[1]{
     \LARGE\centering
-    \textbf{ডাচ বাংলা ব্যাংক প্রথম আলো গণিত উৎসব ২০২০ }\\
+    \textbf{ডাচ বাংলা ব্যাংক প্রথম আলো গণিত উৎসব ২০২১ }\\
     \Large
     #1\\
     আয়োজক: বাংলাদেশ গণিত অলিম্পিয়াড কমিটি
@@ -81,8 +81,7 @@
 
 %% Print the instructions
 \newcommand{\instructions}{
-    \textbf{এই উত্তর পত্রের নির্দিষ্ট স্থানে উত্তর লিখতে হবে। খসড়ার জন্য পৃথক কাগজ ব্যবহার করতে হবে এবং তা জমা দিতে
-    হবে। সকল সংখ্যা ইংরেজিতে লেখা হয়েছে। সবাইকে নিজ নিজ উত্তরপত্র জমা দিতে হবে।}
+    \centering{\textbf{এই উত্তরপত্রের নির্দিষ্ট স্থানে উত্তর লিখতে হবে। খসড়ার জন্য পৃথক কাগজ ব্যবহার করতে হবে এবং তা জমা দিতে হবে। সকল সংখ্যা ইংরেজিতে লেখা হয়েছে। সবাইকে নিজ নিজ উত্তরপত্র জমা দিতে হবে।}}
 }
 
 %% Finally join all the different parts and make the title
@@ -114,12 +113,13 @@
 
 %% the topline of the table
 \newcommand{\topline}{
-    \hline \centering\textbf{No} & \centering\textbf{Problem} & \textbf{Solution}\\ \hline
+    \hline \centering\textbf{নং} & \centering\textbf{সমস্যা} & \centering\arraybackslash\textbf{উত্তর}\\ 
+    \hline
 }    
 
 %% Problems table houses all the problems, auto numbering
 \newenvironment{Problems}{
-    \begin{longtable}{|C{.04\textwidth}|m{.73\textwidth}|m{.15\textwidth}|}
+    \begin{longtable}{|C{.04\textwidth}|m{.73\textwidth}|m{.10\textwidth}|}
     \topline
 }{
     \end{longtable}
