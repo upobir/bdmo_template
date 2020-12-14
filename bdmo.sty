@@ -1,0 +1,134 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bdmo}[2020/12/15 v0.1 BdMO Template]
+\RequirePackage{polyglossia, fontspec, xkeyval, ifxetex}
+\RequirePackage[Latin, Bengali, Devanagari]{ucharclasses}
+\usepackage{longtable}
+\usepackage{graphicx}
+
+
+%% Option to change all numbers to Bangla
+\newif\ifchange@num \change@numtrue
+\DeclareOptionX{changecounternumbering}{
+	\if\relax\detokenize{#1}\relax\fi
+	\ifcase#1
+        \change@numfalse
+    \fi
+}
+\ProcessOptionsX\relax
+
+%% if changecounternumber is set to true, then change the numbers
+\ifchange@num
+	\setmainlanguage[changecounternumbering=false, numerals=Bengali]{bengali}
+\else
+	\setmainlanguage{bengali}
+\fi
+
+%% Fine-tuning Kalpurush support
+\newfontfamily\bengalifont[%
+	Script=Bengali,%
+	Scale=MatchLowercase,%
+	WordSpace=1.1,%
+	AutoFakeSlant,
+	AutoFakeBold=2.5
+]{Kalpurush}
+
+%% DO NOT CHANGE. This lets us modify the english font when we use Kalpurush
+\newenvironment{latin}{\fontencoding{OT1}\fontfamily{lmr}\selectfont}\relax
+\setTransitionsForLatin{\begin{latin}}{\end{latin}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%% problem command, the two inputs are for two languages of the problem
+\newcounter{problem}
+\newcommand{\problem}[2]{
+    \stepcounter{problem}
+    \theproblem & #1 
+
+    \vspace{1em} 
+
+    #2 & \\ \hline
+}
+
+%% Prints the information part of the heading, takes the category as input
+\newcommand{\info}[1]{
+    \bfseries
+    \large
+    ক্যাটেগরি: #1  \hfill সময়: ১ ঘন্টা ১৫ মিনিট
+    \normalsize
+    \vspace{2em}
+
+    নাম (বাংলায়): \hfill শ্রেণি (২০১৯ সাল): \hspace{7.45em} \\[1em]
+    Name (In English):\hfill        Registration No:\hspace{8em} \\[1em]
+    Name of Institution: \hfill Phone No:\hspace{8em}
+    
+    \normalfont
+}
+
+%% Prints the title, takes the Contest name as input
+\newcommand{\bdmoname}[1]{
+    \LARGE\centering
+    \textbf{ডাচ বাংলা ব্যাংক প্রথম আলো গণিত উৎসব ২০২০ }\\
+    \Large
+    #1\\
+    আয়োজক: বাংলাদেশ গণিত অলিম্পিয়াড কমিটি
+}
+
+
+%% logo commands
+\newcommand{\bdmoLogo}{ \centering \includegraphics[width=.8\linewidth]{bdmoLogo.jpg} }
+%% change the filename of the current logo as yearLogo.jpg
+\newcommand{\yearLogo}{ \centering \includegraphics[width=\linewidth]{yearLogo.jpg} }
+
+%% Print the instructions
+\newcommand{\instructions}{
+    \textbf{এই উত্তর পত্রের নির্দিষ্ট স্থানে উত্তর লিখতে হবে। খসড়ার জন্য পৃথক কাগজ ব্যবহার করতে হবে এবং তা জমা দিতে
+    হবে। সকল সংখ্যা ইংরেজিতে লেখা হয়েছে। সবাইকে নিজ নিজ উত্তরপত্র জমা দিতে হবে।}
+}
+
+%% Finally join all the different parts and make the title
+\newcommand{\printtitle}[2]{
+    \begin{minipage}{.17\linewidth}
+        \yearLogo
+    \end{minipage}\hfill%
+    \begin{minipage}{.7\linewidth}
+        \bdmoname{#1}
+    \end{minipage}\hfill%
+    \begin{minipage}{.11\linewidth}
+        \bdmoLogo
+    \end{minipage}
+
+    \vspace{3em}
+    \info{#2}
+    \vspace{3em}
+    \instructions
+}
+
+%% Define the footer style
+\copypagestyle{chapter}{plain}
+\pagestyle{chapter}
+
+\newcommand{\venue}[2]{
+    \makeoddfoot{chapter}{#1}{\thepage}{#2}
+    \makeevenfoot{chapter}{#1}{\thepage}{#2}
+}
+
+%% the topline of the table
+\newcommand{\topline}{
+    \hline \centering\textbf{No} & \centering\textbf{Problem} & \textbf{Solution}\\ \hline
+}    
+
+%% Problems table houses all the problems, auto numbering
+\newenvironment{Problems}{
+    \begin{longtable}{|C{.04\textwidth}|m{.73\textwidth}|m{.15\textwidth}|}
+    \topline
+}{
+    \end{longtable}
+}
+
+%% Spacing specifications
+\setlrmarginsandblock{3em}{3em}{1}
+\setulmarginsandblock{5em}{5em}{*}
+\checkandfixthelayout 
+
+\def\arraystretch{1.8}%
+\setlength{\parindent}{0pt}
