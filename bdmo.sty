@@ -49,27 +49,27 @@
     #2 & \centering\arraybackslash #3 \\ \hline
 }
 
-%% Prints the information part of the heading, takes the category as input
-\newcommand{\info}[1]{
+%% Prints the information part of the heading, takes the category, time, year of class as input
+\newcommand{\info}[3]{
     \bfseries
     \large
-    ক্যাটেগরি: #1  \hfill সময়: ১ ঘন্টা ১৫ মিনিট
+    ক্যাটেগরি: #1  \hfill সময়: #2
     \normalsize
     \vspace{2em}
 
-    নাম (বাংলায়): \hfill শ্রেণি (২০১৯ সাল): \hspace{7.45em} \\[1em]
+    নাম (বাংলায়): \hfill শ্রেণি (#3 সাল): \hspace{7.45em} \\[1em]
     Name (In English):\hfill        Registration No:\hspace{8em} \\[1em]
     Name of Institution: \hfill Phone No:\hspace{8em}
     
     \normalfont
 }
 
-%% Prints the title, takes the Contest name as input
-\newcommand{\bdmoname}[1]{
+%% Prints the title, takes the Contest name and year as input
+\newcommand{\bdmoname}[2]{
     \LARGE\centering
-    \textbf{ডাচ বাংলা ব্যাংক প্রথম আলো গণিত উৎসব ২০২১ }\\
+    \textbf{ডাচ বাংলা ব্যাংক প্রথম আলো গণিত উৎসব #1}\\
     \Large
-    #1\\
+    #2\\
     আয়োজক: বাংলাদেশ গণিত অলিম্পিয়াড কমিটি
 }
 
@@ -85,19 +85,19 @@
 }
 
 %% Finally join all the different parts and make the title
-\newcommand{\printtitle}[2]{
+\newcommand{\printtitle}[5]{
     \begin{minipage}{.17\linewidth}
         \yearLogo
     \end{minipage}\hfill%
     \begin{minipage}{.7\linewidth}
-        \bdmoname{#1}
+        \bdmoname{#1}{#2}
     \end{minipage}\hfill%
     \begin{minipage}{.11\linewidth}
         \bdmoLogo
     \end{minipage}
 
     \vspace{3em}
-    \info{#2}
+    \info{#3}{#4}{#5}
     \vspace{3em}
     \instructions
 }
